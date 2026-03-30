@@ -1,0 +1,70 @@
+/* Animation effects */
+@keyframes waterFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 0; }
+}
+
+.river__water {
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 20px,
+        rgba(255,255,255,0.1) 20px,
+        rgba(255,255,255,0.1) 40px
+    );
+    animation: waterFlow 3s linear infinite;
+}
+
+@keyframes boatRock {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+
+.boat { animation: boatRock 2s ease-in-out infinite; }
+.boat.boat--moving { animation: none; }
+
+@keyframes characterBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.character--boarding { animation: characterBounce 0.3s ease; }
+
+@keyframes victoryPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.character--victory { animation: victoryPulse 0.6s ease infinite; }
+
+@keyframes dangerFlash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.character--danger { animation: dangerFlash 0.4s ease 3; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal__content { animation: fadeIn 0.3s ease; }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.achievement-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--color-success);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    animation: slideUp 0.3s ease;
+    z-index: 200;
+}

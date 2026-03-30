@@ -1,0 +1,109 @@
+/* Global styles and CSS variables */
+:root {
+    --color-primary: #4a90d9;
+    --color-primary-dark: #357abd;
+    --color-danger: #e74c3c;
+    --color-success: #27ae60;
+    --color-warning: #f39c12;
+    --color-bg: #f0f4f8;
+    --color-text: #2c3e50;
+    --color-text-light: #7f8c8d;
+    --color-white: #ffffff;
+    --color-river: #3498db;
+    --color-river-dark: #2980b9;
+    --color-grass: #27ae60;
+    --color-grass-light: #2ecc71;
+    --color-sand: #f5deb3;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --radius: 8px;
+    --transition: 0.3s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--color-white);
+    box-shadow: var(--shadow);
+}
+
+.header__title { font-size: 1.4rem; color: var(--color-primary); }
+.header__nav { display: flex; align-items: center; gap: 16px; }
+.header__nav a { color: var(--color-text); text-decoration: none; font-size: 0.9rem; }
+.header__nav a:hover { color: var(--color-primary); }
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    background: var(--color-white);
+    color: var(--color-text);
+    border: 1px solid #ddd;
+}
+.btn:hover { background: #f0f0f0; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn--primary { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+.btn--primary:hover { background: var(--color-primary-dark); }
+.btn--danger { background: var(--color-danger); color: white; border-color: var(--color-danger); }
+.btn--large { padding: 12px 32px; font-size: 1.1rem; }
+.btn--small { padding: 4px 12px; font-size: 0.8rem; }
+
+.game-container { max-width: 900px; margin: 20px auto; padding: 0 16px; }
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding: 12px;
+    background: var(--color-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+.stat { font-size: 1rem; }
+.stat strong { color: var(--color-primary); font-size: 1.2rem; }
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.game-history { margin-top: 16px; text-align: center; }
+.history__toggle {
+    background: none; border: none; color: var(--color-text-light);
+    cursor: pointer; font-size: 0.9rem;
+}
+.history__list {
+    list-style: none; text-align: left; max-height: 200px;
+    overflow-y: auto; padding: 8px; background: var(--color-white);
+    border-radius: var(--radius); margin-top: 8px; font-size: 0.85rem;
+}
+.history__list li { padding: 4px 0; border-bottom: 1px solid #eee; }
+
+.modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); display: flex; align-items: center;
+    justify-content: center; z-index: 100;
+}
+.modal__content {
+    background: var(--color-white); padding: 32px; border-radius: 12px;
+    text-align: center; max-width: 400px; width: 90%;
+}
+.modal__content h2 { margin-bottom: 12px; font-size: 1.5rem; }
+.modal__actions { display: flex; gap: 12px; justify-content: center; margin-top: 20px; }

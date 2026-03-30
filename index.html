@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 前沿 - 探索人工智能的无限可能</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans SC', sans-serif;
+            background: #f5f7fc;
+            color: #1a2a3f;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* ===== 导航栏 ===== */
+        .navbar {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e8edf5;
+            padding: 0 2rem;
+        }
+        .navbar__inner {
+            max-width: 1100px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 60px;
+        }
+        .navbar__logo {
+            font-size: 1.4rem; font-weight: 800;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .navbar__links { display: flex; gap: 2rem; align-items: center; }
+        .navbar__links a {
+            font-size: 0.9rem; color: #4a5568; font-weight: 500;
+            transition: color 0.2s;
+        }
+        .navbar__links a:hover { color: #2563eb; }
+        .navbar__links .game-link {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem;
+        }
+        .navbar__links .game-link:hover { opacity: 0.9; }
+
+        /* 移动端菜单 */
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 640px) {
+            .menu-toggle { display: block; }
+            .navbar__links {
+                display: none; flex-direction: column; position: absolute;
+                top: 60px; left: 0; right: 0; background: #fff;
+                padding: 1rem 2rem; gap: 1rem; border-bottom: 1px solid #e8edf5;
+            }
+            .navbar__links.open { display: flex; }
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 3rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem; font-weight: 800; line-height: 1.2;
+            background: linear-gradient(135deg, #0b2b44, #2563eb, #7c3aed);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            margin-bottom: 1rem;
+        }
+        .hero p { font-size: 1.1rem; color: #5b6e8c; max-width: 600px; margin: 0 auto 2rem; }
+        .hero__tags { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+        .hero__tag {
+            background: #eef2ff; color: #2563eb; padding: 0.3rem 0.9rem;
+            border-radius: 20px; font-size: 0.8rem; font-weight: 500;
+        }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero { padding: 2.5rem 1.2rem 2rem; }
+        }
+
+        /* ===== 资讯模块 ===== */
+        .news {
+            max-width: 1100px; margin: 0 auto; padding: 0 2rem 3rem;
+        }
+        .section-title {
+            font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .section-title::after {
+            content: ''; flex: 1; height: 1px; background: #e2e8f0;
+        }
+        .news-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .news-card {
+            background: #fff; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex; flex-direction: column;
+        }
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(37,99,235,0.12);
+        }
+        .news-card__banner {
+            height: 160px; display: flex; align-items: center; justify-content: center;
+            font-size: 3rem;
+        }
+        .news-card__banner--ai {
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+        }
+        .news-card__banner--placeholder {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        }
+        .news-card__body { padding: 1.2rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+        .news-card__tag {
+            display: inline-block; background: #eef2ff; color: #2563eb;
+            padding: 0.15rem 0.6rem; border-radius: 12px; font-size: 0.7rem;
+            font-weight: 600; margin-bottom: 0.6rem; width: fit-content;
+        }
+        .news-card__title {
+            font-size: 1.1rem; font-weight: 700; color: #1a2a3f;
+            margin-bottom: 0.5rem; line-height: 1.4;
+        }
+        .news-card__desc {
+            font-size: 0.85rem; color: #5b6e8c; flex: 1;
+            display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .news-card__meta {
+            margin-top: 0.8rem; font-size: 0.75rem; color: #94a3b8;
+            display: flex; justify-content: space-between;
+        }
+
+        /* ===== 页脚 ===== */
+        .footer {
+            max-width: 1100px; margin: 2rem auto 0; padding: 1.5rem 2rem;
+            text-align: center; font-size: 0.8rem; color: #94a3b8;
+            border-top: 1px solid #e8edf5;
+        }
+</style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar__inner">
+            <a href="index.html" class="navbar__logo">⚡ Meta AI</a>
+            <button class="menu-toggle" onclick="document.querySelector('.navbar__links').classList.toggle('open')">☰</button>
+            <div class="navbar__links">
+                <a href="#news">资讯</a>
+                <a href="game.html" class="game-link">🎮 农夫过河</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>探索人工智能的无限可能</h1>
+        <p>AI 正在重塑我们的世界。从效率革命到创造力解放，这里是你了解 AI 前沿动态的第一站。</p>
+        <div class="hero__tags">
+            <span class="hero__tag">大模型</span>
+            <span class="hero__tag">AI Agent</span>
+            <span class="hero__tag">自动编程</span>
+            <span class="hero__tag">创造者纪元</span>
+        </div>
+    </section>
+
+    <!-- 资讯模块 -->
+    <section class="news" id="news">
+        <div class="section-title">📰 AI 前沿</div>
+        <div class="news-grid">
+            <!-- 第一篇：AI文章 -->
+            <a href="AI_20260330.html" class="news-card">
+                <div class="news-card__banner news-card__banner--ai">🚀</div>
+                <div class="news-card__body">
+                    <span class="news-card__tag">深度观点</span>
+                    <div class="news-card__title">AI——人类进化的加速器、创造者的筑梦机</div>
+                    <div class="news-card__desc">AI 从最强大脑、聊天，进化为有手有脚、能做事情。AI 的进化就是人类的进化，是人类探索未知、扩展边界的好伙伴。PaaS、SaaS 正在被 AI Agent 重塑。</div>
+                    <div class="news-card__meta">
+                        <span>2026-03-30</span>
+                        <span>阅读 5 分钟</span>
+                    </div>
+                </div>
+            </a>
+            <!-- 占位文章2 -->
+            <div class="news-card" style="opacity:0.6; cursor:default;">
+                <div class="news-card__banner news-card__banner--placeholder">🤖</div>
+                <div class="news-card__body">
+                    <span class="news-card__tag" style="background:#f0fdf4;color:#16a34a;">行业动态</span>
+                    <div class="news-card__title">AI Agent 如何改变软件开发流程</div>
+                    <div class="news-card__desc">从代码生成到自动测试，AI Agent 正在重新定义开发者的工作方式。未来的开发者将更多地扮演架构师和产品经理的角色。</div>
+                    <div class="news-card__meta">
+                        <span>即将发布</span>
+                        <span>敬请期待</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 占位文章3 -->
+            <div class="news-card" style="opacity:0.6; cursor:default;">
+                <div class="news-card__banner news-card__banner--placeholder">🧠</div>
+                <div class="news-card__body">
+                    <span class="news-card__tag" style="background:#fef3c7;color:#d97706;">技术前沿</span>
+                    <div class="news-card__title">大模型的下一个突破点在哪里</div>
+                    <div class="news-card__desc">从 GPT 到多模态，从文本到具身智能，大模型正在向通用人工智能迈进。下一个临界点的突破将带来怎样的变革？</div>
+                    <div class="news-card__meta">
+                        <span>即将发布</span>
+                        <span>敬请期待</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>© 2026 Meta AI · 探索人工智能的无限可能 · ⚡ 进化加速器 · 筑梦新纪元 ⚡</p>
+    </footer>
+</body>
+</html>

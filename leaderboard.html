@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排行榜 - 农夫过河</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .lb-container { max-width: 700px; margin: 20px auto; padding: 0 16px; }
+        .lb-card { background: var(--color-white); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; }
+        .lb-card h2 { margin-bottom: 16px; text-align: center; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { color: var(--color-text-light); font-size: 0.85rem; }
+        .rank-1 { color: #FFD700; font-weight: bold; }
+        .rank-2 { color: #C0C0C0; font-weight: bold; }
+        .rank-3 { color: #CD7F32; font-weight: bold; }
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+        .personal-best { margin-top: 20px; padding: 16px; background: #f8f9fa; border-radius: var(--radius); }
+        .back-link { display: block; text-align: center; margin-top: 16px; color: var(--color-text-light); }
+    </style>
+</head>
+<body>
+    <div class="lb-container">
+        <div class="lb-card">
+            <h2>🏆 排行榜</h2>
+            <table data-testid="leaderboard-table">
+                <thead><tr><th>排名</th><th>玩家</th><th>步数</th><th>用时</th></tr></thead>
+                <tbody id="lbBody"></tbody>
+            </table>
+            <div class="pagination" id="pagination"></div>
+        </div>
+        <div class="personal-best" id="personalBest" data-testid="personal-best"></div>
+        <a href="game.html" class="back-link">返回游戏</a>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/leaderboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成就 - 农夫过河</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .ach-container { max-width: 700px; margin: 20px auto; padding: 0 16px; }
+        .ach-card { background: var(--color-white); border-radius: 12px; box-shadow: var(--shadow); padding: 24px; }
+        .ach-card h2 { text-align: center; margin-bottom: 8px; }
+        .ach-progress { text-align: center; color: var(--color-text-light); margin-bottom: 20px; }
+        .ach-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+        .ach-item { padding: 16px; border-radius: var(--radius); border: 1px solid #eee; text-align: center; }
+        .ach-item.unlocked { background: #f0fff0; border-color: var(--color-success); }
+        .ach-item.locked { opacity: 0.6; }
+        .ach-icon { font-size: 2rem; margin-bottom: 8px; }
+        .ach-name { font-weight: bold; margin-bottom: 4px; }
+        .ach-desc { font-size: 0.85rem; color: var(--color-text-light); }
+        .ach-time { font-size: 0.75rem; color: var(--color-success); margin-top: 4px; }
+        .back-link { display: block; text-align: center; margin-top: 16px; color: var(--color-text-light); }
+    </style>
+</head>
+<body>
+    <div class="ach-container">
+        <div class="ach-card">
+            <h2>🏅 成就</h2>
+            <p class="ach-progress" id="achProgress" data-testid="ach-progress"></p>
+            <div class="ach-grid" id="achGrid" data-testid="ach-grid"></div>
+        </div>
+        <a href="game.html" class="back-link">返回游戏</a>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/achievements.js"></script>
+</body>
+</html>

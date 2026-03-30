@@ -1,0 +1,82 @@
+/* CSS vector characters */
+.character {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.character:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+.character.character--highlight { box-shadow: 0 0 0 3px var(--color-warning), 0 4px 12px rgba(0,0,0,0.3); }
+
+/* Farmer - brown hat, blue overalls */
+.character--farmer {
+    width: 35px; height: 35px;
+    background: #DEB887;
+    border: 2px solid #8B7355;
+}
+.character--farmer::before {
+    content: '👨‍🌾';
+    font-size: 20px;
+}
+
+/* Wolf - gray with pointed ears */
+.character--wolf {
+    background: linear-gradient(135deg, #808080 0%, #696969 100%);
+    border: 2px solid #555;
+}
+.character--wolf::before {
+    content: '🐺';
+    font-size: 28px;
+}
+.character--wolf::after {
+    content: '狼';
+    position: absolute;
+    bottom: -18px;
+    font-size: 0.7rem;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+/* Sheep - white and fluffy */
+.character--sheep {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F0F0F0 100%);
+    border: 2px solid #CCC;
+}
+.character--sheep::before {
+    content: '🐑';
+    font-size: 28px;
+}
+.character--sheep::after {
+    content: '羊';
+    position: absolute;
+    bottom: -18px;
+    font-size: 0.7rem;
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+/* Cabbage - green and round */
+.character--cabbage {
+    background: linear-gradient(135deg, #32CD32 0%, #228B22 100%);
+    border: 2px solid #006400;
+}
+.character--cabbage::before {
+    content: '🥬';
+    font-size: 28px;
+}
+.character--cabbage::after {
+    content: '白菜';
+    position: absolute;
+    bottom: -18px;
+    font-size: 0.7rem;
+    color: var(--color-text);
+    white-space: nowrap;
+}

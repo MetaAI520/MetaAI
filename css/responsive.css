@@ -1,0 +1,22 @@
+/* Responsive design - mobile first */
+@media (max-width: 767px) {
+    .header { flex-direction: column; gap: 8px; padding: 8px 16px; }
+    .header__nav { gap: 10px; font-size: 0.85rem; }
+
+    .game-board { flex-direction: column; min-height: 500px; }
+    .bank { flex-direction: row; min-height: 80px; padding: 8px; }
+    .bank__characters { flex-direction: row; gap: 8px; }
+    .bank__label { margin-bottom: 0; margin-right: 8px; }
+
+    .river { min-height: 200px; }
+    .character { width: 44px; height: 44px; }
+
+    .game-controls { gap: 8px; }
+    .btn--large { padding: 10px 20px; font-size: 1rem; }
+    .game-stats { gap: 16px; }
+}
+
+@media (min-width: 768px) {
+    .game-board { min-height: 400px; }
+    .character { width: 55px; height: 55px; }
+}

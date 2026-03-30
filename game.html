@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农夫过河</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/characters.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">农夫过河</h1>
+        <nav class="header__nav">
+            <a href="leaderboard.html" data-testid="nav-leaderboard">排行榜</a>
+            <a href="achievements.html" data-testid="nav-achievements">成就</a>
+            <span class="header__user" data-testid="user-status"></span>
+            <button class="btn btn--small" data-testid="auth-button" id="authBtn">登录</button>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <div class="game-stats" data-testid="game-stats">
+            <span class="stat" data-testid="step-counter">步数: <strong id="stepCount">0</strong></span>
+            <span class="stat" data-testid="timer">时间: <strong id="timer">0:00</strong></span>
+        </div>
+
+        <div class="game-board" data-testid="game-board" id="gameBoard">
+            <div class="bank bank--left" data-testid="left-bank" id="leftBank">
+                <h3 class="bank__label">左岸</h3>
+                <div class="bank__characters" id="leftCharacters"></div>
+            </div>
+
+            <div class="river" data-testid="river">
+                <div class="river__water"></div>
+                <div class="boat" data-testid="boat" id="boat">
+                    <div class="boat__body"></div>
+                    <div class="boat__farmer character character--farmer"></div>
+                    <div class="boat__passenger" id="boatPassenger"></div>
+                </div>
+            </div>
+
+            <div class="bank bank--right" data-testid="right-bank" id="rightBank">
+                <h3 class="bank__label">右岸</h3>
+                <div class="bank__characters" id="rightCharacters"></div>
+            </div>
+        </div>
+
+        <div class="game-controls" data-testid="game-controls">
+            <button class="btn btn--primary btn--large" data-testid="cross-river-btn" id="crossBtn">过河</button>
+            <button class="btn" data-testid="undo-btn" id="undoBtn" disabled>撤销</button>
+            <button class="btn" data-testid="hint-btn" id="hintBtn">提示</button>
+            <button class="btn btn--danger" data-testid="restart-btn" id="restartBtn">重新开始</button>
+        </div>
+
+        <div class="game-history" data-testid="game-history">
+            <button class="history__toggle" data-testid="history-toggle" id="historyToggle">操作历史 ▼</button>
+            <ul class="history__list" id="historyList" style="display:none;"></ul>
+        </div>
+    </main>
+
+    <div class="modal" id="resultModal" style="display:none;" data-testid="result-modal">
+        <div class="modal__content">
+            <h2 id="resultTitle"></h2>
+            <p id="resultMessage"></p>
+            <div id="resultStats"></div>
+            <div class="modal__actions">
+                <button class="btn btn--primary" data-testid="play-again-btn" id="playAgainBtn">再玩一次</button>
+                <button class="btn" data-testid="share-btn" id="shareBtn">分享</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/game-engine.js"></script>
+    <script src="js/api-client.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/game-board.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/share.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
