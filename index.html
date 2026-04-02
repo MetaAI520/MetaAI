@@ -145,7 +145,7 @@
     <nav class="navbar">
         <div class="navbar__inner">
             <a href="index.html" class="navbar__logo">⚡ Meta AI</a>
-            <button class="menu-toggle" onclick="document.querySelector('.navbar__links').classList.toggle('open')">☰</button>
+            <button class="menu-toggle" aria-label="打开菜单" onclick="document.querySelector('.navbar__links').classList.toggle('open')">☰</button>
             <div class="navbar__links">
                 <a href="#news">资讯</a>
                 <a href="game.html" class="game-link">🎮 农夫过河</a>
@@ -183,18 +183,18 @@
                 </div>
             </a>
             <!-- 占位文章2 -->
-            <div class="news-card" style="opacity:0.6; cursor:default;">
-                <div class="news-card__banner news-card__banner--placeholder">🤖</div>
+            <a href="human-history.html" class="news-card">
+                <div class="news-card__banner news-card__banner--placeholder" style="background:linear-gradient(135deg,#fef3c7,#fde68a);">🧬</div>
                 <div class="news-card__body">
-                    <span class="news-card__tag" style="background:#f0fdf4;color:#16a34a;">行业动态</span>
-                    <div class="news-card__title">AI Agent 如何改变软件开发流程</div>
-                    <div class="news-card__desc">从代码生成到自动测试，AI Agent 正在重新定义开发者的工作方式。未来的开发者将更多地扮演架构师和产品经理的角色。</div>
+                    <span class="news-card__tag" style="background:#fef3c7;color:#d97706;">文明溯源</span>
+                    <div class="news-card__title">人类简史 — 从直立行走到人工智能</div>
+                    <div class="news-card__desc">回望 500 万年进化历程，能量与信息的双螺旋推动人类不断超越自身。从肌肉到算力，从基因到 AI，每一次关键突破都在加速文明的跃迁。</div>
                     <div class="news-card__meta">
-                        <span>即将发布</span>
-                        <span>敬请期待</span>
+                        <span>2026-04-02</span>
+                        <span>阅读 3 分钟</span>
                     </div>
                 </div>
-            </div>
+            </a>
             <!-- 占位文章3 -->
             <div class="news-card" style="opacity:0.6; cursor:default;">
                 <div class="news-card__banner news-card__banner--placeholder">🧠</div>

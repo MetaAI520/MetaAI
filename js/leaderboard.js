@@ -12,7 +12,7 @@
                 const rankClass = item.rank <= 3 ? `rank-${item.rank}` : '';
                 return `<tr>
                     <td class="${rankClass}">#${item.rank}</td>
-                    <td>${item.player}</td>
+                    <td>${Utils.escapeHTML(item.player)}</td>
                     <td>${item.steps}</td>
                     <td>${Utils.formatTime(item.time_seconds)}</td>
                 </tr>`;

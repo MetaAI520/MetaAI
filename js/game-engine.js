@@ -22,7 +22,7 @@ class GameEngine {
         };
     }
 
-    getState() { return { ...this.state }; }
+    getState() { return JSON.parse(JSON.stringify(this.state)); }
 
     /** Load a character onto the boat */
     loadItem(characterId) {

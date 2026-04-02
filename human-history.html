@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>人类简史 — 从直立行走到人工智能</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f5f7fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Noto Sans', sans-serif;
+            line-height: 1.5; color: #1a2a3f;
+            scroll-behavior: smooth; padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 880px; margin: 0 auto; background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
+        .content { padding: 2.5rem 2rem; }
+        @media (max-width: 640px) {
+            body { padding: 1rem 0.75rem; }
+            .content { padding: 1.8rem 1.25rem; }
+        }
+        .back-link {
+            display: inline-block; margin-bottom: 1.5rem;
+            color: #2563eb; font-size: 0.9rem; font-weight: 500;
+        }
+        .back-link:hover { text-decoration: underline; }
+        a { text-decoration: none; }
+
+        /* 标题区 */
+        .hero { margin-bottom: 2rem; border-bottom: 2px solid #eef2f9; padding-bottom: 1.5rem; }
+        h1 {
+            font-size: 2.2rem; font-weight: 800; line-height: 1.2;
+            background: linear-gradient(135deg, #0b2b44 0%, #1e4a76 50%, #2563eb 100%);
+            background-clip: text; -webkit-background-clip: text; color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .sub {
+            font-size: 0.9rem; color: #5b6e8c; display: flex;
+            align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;
+        }
+        .sub span {
+            background: #eef2ff; padding: 0.2rem 0.6rem; border-radius: 40px;
+            font-size: 0.75rem; font-weight: 500; color: #2563eb;
+        }
+        hr {
+            margin: 2rem 0; border: 0; height: 1px;
+            background: linear-gradient(90deg, #e2e8f0, #b9c8e8, #e2e8f0);
+        }
+        p { margin-bottom: 1.25rem; font-size: 1rem; color: #1e2f3e; }
+        strong, b { color: #1e4a76; font-weight: 600; }
+        h2 {
+            font-size: 1.4rem; font-weight: 700; color: #1e4a76;
+            margin: 2rem 0 1rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <a href="index.html" class="back-link">← 返回 Meta AI</a>
+
+        <div class="hero">
+            <h1>人类简史 — 从直立行走到人工智能</h1>
+            <div class="sub">
+                <span>500万年</span>
+                <span>能量进化</span>
+                <span>信息进化</span>
+            </div>
+        </div>
+
+        <p>回望人类 500 万年的进化历程，每一次关键突破都在加速文明的跃迁。从肌肉到算力，从基因到人工智能，<strong>能量与信息的双螺旋</strong>推动着人类不断超越自身。</p>
+
+        <hr>
+
+        <h2>📜 文明里程碑</h2>
+
+        <style>
+            .timeline { position: relative; padding-left: 2rem; margin: 1rem 0 2rem; }
+            .timeline::before {
+                content: ''; position: absolute; left: 0.6rem; top: 0; bottom: 0;
+                width: 3px; background: linear-gradient(180deg, #2563eb, #7c3aed, #ec4899);
+                border-radius: 2px;
+            }
+            .tl-item {
+                position: relative; margin-bottom: 0.5rem; padding: 0.5rem 0.8rem;
+                display: flex; align-items: center; gap: 0.6rem;
+                transition: all 0.2s; border-radius: 10px;
+            }
+            .tl-item:hover { background: #f0f4fe; }
+            .tl-item::before {
+                content: ''; position: absolute; left: -1.65rem; top: 50%;
+                transform: translateY(-50%);
+                width: 8px; height: 8px; border-radius: 50%;
+                background: #2563eb; border: 2px solid #fff;
+                box-shadow: 0 0 0 2px #2563eb; flex-shrink: 0;
+            }
+            .tl-year {
+                font-size: 0.72rem; font-weight: 700; color: #2563eb;
+                background: #eef2ff; padding: 0.15rem 0.5rem; border-radius: 8px;
+                white-space: nowrap; flex-shrink: 0; min-width: 90px; text-align: center;
+            }
+            .tl-text { font-size: 0.9rem; color: #1e2f3e; }
+            .tl-text strong { color: #1e4a76; }
+
+            /* 双螺旋进化链 - 左右分开 */
+            .helix-wrap { margin: 1rem 0 2rem; position: relative; }
+            .helix-canvas {
+                position: relative; width: 100%; height: 480px;
+            }
+            .helix-canvas svg {
+                position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            }
+            .helix-label {
+                position: absolute; z-index: 3;
+                padding: 0.2rem 0.6rem; border-radius: 12px;
+                font-size: 0.75rem; font-weight: 600; white-space: nowrap;
+                transform: translateY(-50%);
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+            .helix-label:hover { transform: translateY(-50%) scale(1.1); box-shadow: 0 3px 12px rgba(0,0,0,0.12); }
+            .hl-energy {
+                background: linear-gradient(135deg, #fff7ed, #ffedd5);
+                color: #c2410c; border: 1px solid #fed7aa;
+            }
+            .hl-info {
+                background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+                color: #065f46; border: 1px solid #a7f3d0;
+            }
+            .hl-glow-e {
+                background: linear-gradient(135deg, #ef4444, #7c3aed);
+                color: #fff; border-color: transparent;
+                box-shadow: 0 0 14px rgba(239,68,68,0.35);
+            }
+            .hl-glow-i {
+                background: linear-gradient(135deg, #2563eb, #7c3aed);
+                color: #fff; border-color: transparent;
+                box-shadow: 0 0 14px rgba(37,99,235,0.35);
+            }
+            .helix-legend {
+                display: flex; justify-content: space-around; margin-bottom: 0.3rem;
+            }
+            .helix-legend span { font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; }
+            .helix-legend .ll-e { color: #c2410c; }
+            .helix-legend .ll-i { color: #065f46; }
+            .helix-top-arrow {
+                text-align: center; font-size: 1rem; color: #7c3aed; margin-top: -0.3rem;
+            }
+            @media (max-width: 560px) {
+                .helix-canvas { height: 420px; }
+                .helix-label { font-size: 0.65rem; padding: 0.15rem 0.4rem; }
+            }
+
+            .closing-quote {
+                margin-top: 2.5rem; padding: 1.8rem 1.5rem;
+                background: linear-gradient(115deg, #f0f6ff 0%, #ffffff 100%);
+                border-radius: 32px; text-align: center; border: 1px solid #e2edff;
+            }
+            .closing-quote p { margin-bottom: 0.5rem; font-size: 1.2rem; font-weight: 500; }
+            .closing-quote .tagline {
+                font-size: 1.5rem; font-weight: 800;
+                background: linear-gradient(120deg, #0f2b3f, #2563eb);
+                background-clip: text; -webkit-background-clip: text; color: transparent;
+                margin-top: 0.25rem;
+            }
+        </style>
+
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="tl-year">500 万年前</div>
+                <div class="tl-text"><strong>直立行走</strong> — 非洲大裂谷环境分化，西部森林，东部草原</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">250 万年前</div>
+                <div class="tl-text"><strong>使用工具</strong></div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">50 万年前</div>
+                <div class="tl-text"><strong>使用火</strong></div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">7 万年前</div>
+                <div class="tl-text"><strong>认知革命</strong> — 使用语言</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">1 万年前</div>
+                <div class="tl-text"><strong>农业革命</strong></div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">5000 年前</div>
+                <div class="tl-text"><strong>使用文字</strong></div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">2500 年前</div>
+                <div class="tl-text"><strong>轴心时代</strong> — 百家争鸣</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">1000 年前</div>
+                <div class="tl-text"><strong>四大发明</strong> — 造纸术、印刷术、指南针、火药</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">500 年前</div>
+                <div class="tl-text"><strong>地理大发现</strong></div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">450 年前</div>
+                <div class="tl-text"><strong>日心说 · 科学革命</strong></div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">260 年前</div>
+                <div class="tl-text"><strong>第 1 次工业革命</strong> — 煤炭、蒸汽机、铁路、机器、钢铁</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">150 年前</div>
+                <div class="tl-text"><strong>第 2 次工业革命</strong> — 电力、内燃机、汽车、电器、化工、通讯、飞机</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">80 年前</div>
+                <div class="tl-text"><strong>信息革命</strong> — 计算机、集成电路、互联网、手机、核能、卫星、航天</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-year">15 年前 → 现在</div>
+                <div class="tl-text"><strong>智能革命</strong> — 人工智能、基因工程、量子计算</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>⚡🧬 能量 × 信息 · 双螺旋进化</h2>
+        <div class="helix-legend">
+            <span class="ll-e">⚡ 能量</span>
+            <span class="ll-i">🧬 信息</span>
+        </div>
+        <div class="helix-top-arrow">▲ 未来</div>
+        <div class="helix-wrap">
+            <div class="helix-canvas" id="helixCanvas">
+                <svg id="helixSvg"></svg>
+            </div>
+        </div>
+        <script>
+        (function() {
+            // 数据：从古到新（底→顶）
+            const energy = ['肌肉人力','工具杠杆','火','农牧','化石能源','机器','电力电器','芯片算力','核能','量子计算'];
+            const info   = ['遗传基因','双手手艺','语言','文字','知识文明','哲学','科学','计算机互联网','人工智能','基因工程'];
+            const N = energy.length;
+            const canvas = document.getElementById('helixCanvas');
+            const svg = document.getElementById('helixSvg');
+
+            function draw() {
+                const W = canvas.offsetWidth;
+                const H = canvas.offsetHeight;
+                svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+                svg.setAttribute('width', W);
+                svg.setAttribute('height', H);
+
+                // 左螺旋中心 25%，右螺旋中心 75%
+                const cxE = W * 0.22, cxI = W * 0.78;
+                const ampE = W * 0.13, ampI = W * 0.13;
+                const padTop = 25, padBot = 25;
+                const usableH = H - padTop - padBot;
+
+                // 生成平滑螺旋路径
+                const steps = N * 8;
+                let pathE = '', pathI = '';
+                for (let i = 0; i <= steps; i++) {
+                    const t = i / steps;
+                    const y = H - padBot - t * usableH;
+                    const phase = t * Math.PI * 4;
+                    const xE = cxE + Math.sin(phase) * ampE;
+                    const xI = cxI + Math.sin(phase + Math.PI) * ampI;
+                    pathE += (i === 0 ? 'M' : 'L') + xE.toFixed(1) + ',' + y.toFixed(1) + ' ';
+                    pathI += (i === 0 ? 'M' : 'L') + xI.toFixed(1) + ',' + y.toFixed(1) + ' ';
+                }
+
+                svg.innerHTML = `
+                    <defs>
+                        <linearGradient id="gE" x1="0" y1="1" x2="0" y2="0">
+                            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="#ef4444" stop-opacity="0.7"/>
+                        </linearGradient>
+                        <linearGradient id="gI" x1="0" y1="1" x2="0" y2="0">
+                            <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="#2563eb" stop-opacity="0.7"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="${pathE}" fill="none" stroke="url(#gE)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+                    <path d="${pathI}" fill="none" stroke="url(#gI)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+                `;
+
+                // 清除旧标签
+                canvas.querySelectorAll('.helix-label').forEach(el => el.remove());
+
+                // 放置文字标签跟随螺旋位置
+                for (let i = 0; i < N; i++) {
+                    const t = (i + 0.5) / N;
+                    const y = H - padBot - t * usableH;
+                    const phase = t * Math.PI * 4;
+                    const xE = cxE + Math.sin(phase) * ampE;
+                    const xI = cxI + Math.sin(phase + Math.PI) * ampI;
+                    const isTop = i >= N - 1;
+                    const isTop2 = i >= N - 2;
+
+                    // 能量标签：放在螺旋点的右侧或左侧（跟随波形）
+                    const elE = document.createElement('span');
+                    elE.className = 'helix-label ' + (isTop ? 'hl-glow-e' : 'hl-energy');
+                    elE.textContent = energy[i];
+                    elE.style.top = y + 'px';
+                    // 标签在曲线外侧
+                    if (Math.sin(phase) >= 0) {
+                        elE.style.left = (xE + 8) + 'px';
+                    } else {
+                        elE.style.right = (W - xE + 8) + 'px';
+                    }
+                    canvas.appendChild(elE);
+
+                    // 信息标签
+                    const elI = document.createElement('span');
+                    elI.className = 'helix-label ' + (isTop2 ? 'hl-glow-i' : 'hl-info');
+                    elI.textContent = info[i];
+                    elI.style.top = y + 'px';
+                    const sinI = Math.sin(phase + Math.PI);
+                    if (sinI >= 0) {
+                        elI.style.left = (xI + 8) + 'px';
+                    } else {
+                        elI.style.right = (W - xI + 8) + 'px';
+                    }
+                    canvas.appendChild(elI);
+                }
+            }
+            draw();
+            window.addEventListener('resize', draw);
+        })();
+        </script>
+
+        <div class="closing-quote">
+            <p>✨ <strong>能量与信息的双螺旋，驱动人类不断超越自身。</strong> ✨</p>
+            <div class="tagline">下一个 500 万年，由 AI 加速开启。</div>
+        </div>
+    </div>
+</div>
+<footer style="text-align:center;margin-top:1rem;font-size:0.7rem;color:#8ca3bc;padding:1.5rem 0;">
+    ⚡ 进化加速器 · 筑梦新纪元 ⚡
+</footer>

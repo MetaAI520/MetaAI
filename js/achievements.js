@@ -18,8 +18,8 @@
                 : '';
             return `<div class="ach-item ${cls}" data-testid="ach-${a.id}">
                 <div class="ach-icon">${icon}</div>
-                <div class="ach-name">${a.name}</div>
-                <div class="ach-desc">${a.description}</div>
+                <div class="ach-name">${Utils.escapeHTML(a.name)}</div>
+                <div class="ach-desc">${Utils.escapeHTML(a.description)}</div>
                 ${time}
             </div>`;
         }).join('');
