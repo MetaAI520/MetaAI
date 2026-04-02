@@ -72,7 +72,10 @@
             </div>
         </div>
 
-        <p>回望人类 500 万年的进化历程，每一次关键突破都在加速文明的跃迁。从肌肉到算力，从基因到人工智能，<strong>能量与信息的双螺旋</strong>推动着人类不断超越自身。</p>
+        <div style="background:linear-gradient(135deg,#f0f4fe,#e8f0fe);border-radius:20px;padding:1.2rem 1.5rem;margin-bottom:1.5rem;border-left:4px solid #2563eb;">
+            <p style="margin:0;font-size:1.05rem;line-height:1.7;">回望人类 <strong style="font-size:1.3rem;background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent;">500 万年</strong> 的进化历程，每一次关键突破都在加速文明的跃迁。</p>
+            <p style="margin:0.6rem 0 0;font-size:1.05rem;line-height:1.7;">从 <strong>肌肉</strong> 到 <strong>算力</strong>，从 <strong>基因</strong> 到 <strong>人工智能</strong>，<span style="background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;">能量与信息的双螺旋</span> 推动着人类不断超越自身。</p>
+        </div>
 
         <hr>
 
@@ -256,9 +259,9 @@
                 svg.setAttribute('width', W);
                 svg.setAttribute('height', H);
 
-                // 左螺旋中心 25%，右螺旋中心 75%
-                const cxE = W * 0.22, cxI = W * 0.78;
-                const ampE = W * 0.13, ampI = W * 0.13;
+                // 螺旋中心靠近中间，间距缩小
+                const cxE = W * 0.35, cxI = W * 0.65;
+                const ampE = W * 0.12, ampI = W * 0.12;
                 const padTop = 25, padBot = 25;
                 const usableH = H - padTop - padBot;
 
@@ -293,7 +296,7 @@
                 // 清除旧标签
                 canvas.querySelectorAll('.helix-label').forEach(el => el.remove());
 
-                // 放置文字标签跟随螺旋位置
+                // 放置文字标签：能量始终在螺旋左侧，信息始终在螺旋右侧
                 for (let i = 0; i < N; i++) {
                     const t = (i + 0.5) / N;
                     const y = H - padBot - t * usableH;
@@ -303,30 +306,20 @@
                     const isTop = i >= N - 1;
                     const isTop2 = i >= N - 2;
 
-                    // 能量标签：放在螺旋点的右侧或左侧（跟随波形）
+                    // 能量标签：始终在螺旋点的左边
                     const elE = document.createElement('span');
                     elE.className = 'helix-label ' + (isTop ? 'hl-glow-e' : 'hl-energy');
                     elE.textContent = energy[i];
                     elE.style.top = y + 'px';
-                    // 标签在曲线外侧
-                    if (Math.sin(phase) >= 0) {
-                        elE.style.left = (xE + 8) + 'px';
-                    } else {
-                        elE.style.right = (W - xE + 8) + 'px';
-                    }
+                    elE.style.right = (W - xE + 6) + 'px';
                     canvas.appendChild(elE);
 
-                    // 信息标签
+                    // 信息标签：始终在螺旋点的右边
                     const elI = document.createElement('span');
                     elI.className = 'helix-label ' + (isTop2 ? 'hl-glow-i' : 'hl-info');
                     elI.textContent = info[i];
                     elI.style.top = y + 'px';
-                    const sinI = Math.sin(phase + Math.PI);
-                    if (sinI >= 0) {
-                        elI.style.left = (xI + 8) + 'px';
-                    } else {
-                        elI.style.right = (W - xI + 8) + 'px';
-                    }
+                    elI.style.left = (xI + 6) + 'px';
                     canvas.appendChild(elI);
                 }
             }
