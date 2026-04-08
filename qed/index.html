@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="质能达微电子 — 专注自主IC芯片设计，超声波MEMS+CMOS传感器、BMS电池管理、LED驱动芯片研发商" />
+  <title>质能达微电子 | QED Micro — 自主芯片，智驱未来</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================
+       QED MICRO — Complete Design System
+       质能达微电子品牌设计系统
+       ============================================ */
+    :root {
+      --qed-dark: #0B0E14;
+      --qed-navy: #121B2E;
+      --qed-blue: #2B7FE8;
+      --qed-cyan: #14C8E8;
+      --qed-gold: #E8A832;
+      --qed-light: #F5F6F8;
+      --foreground: #171C26;
+      --muted: #6B7280;
+      --border: #E2E5EA;
+      --bg-light: #F9FAFB;
+      --bg-white: #FFFFFF;
+      --radius: 0.625rem;
+      --gradient-brand: linear-gradient(135deg, #2B7FE8, #14C8E8);
+      --gradient-gold: linear-gradient(135deg, #E8A832, #F0C050);
+      --gradient-hero: linear-gradient(165deg, #0B0E14 0%, #121B2E 40%, #162244 100%);
+      --gradient-card-dark: linear-gradient(180deg, #15203A 0%, #0F1728 100%);
+      --shadow-sm: 0 2px 8px -2px rgba(23,28,38,0.06);
+      --shadow-md: 0 8px 24px -8px rgba(23,28,38,0.1);
+      --shadow-lg: 0 16px 48px -12px rgba(23,28,38,0.15);
+      --shadow-glow-blue: 0 0 40px rgba(43,127,232,0.25);
+      --shadow-card-hover: 0 12px 32px -8px rgba(43,127,232,0.18);
+      --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-spring: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; border: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif; color: var(--foreground); background: var(--bg-white); line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: inherit; background: none; border: none; }
+    a { text-decoration: none; color: inherit; }
+    ::selection { background: rgba(43,127,232,0.2); }
+
+    /* ========== Typography ========== */
+    .text-display-xl { font-size: 4.5rem; line-height: 1.1; letter-spacing: -0.03em; font-weight: 700; }
+    .text-display-lg { font-size: 3.5rem; line-height: 1.15; letter-spacing: -0.025em; font-weight: 700; }
+    .text-display-md { font-size: 2.5rem; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; }
+    .text-display-sm { font-size: 1.875rem; line-height: 1.3; letter-spacing: -0.015em; font-weight: 600; }
+    .text-body-lg { font-size: 1.125rem; line-height: 1.7; }
+    .text-body-md { font-size: 1rem; line-height: 1.7; }
+    .text-body-sm { font-size: 0.875rem; line-height: 1.6; }
+    .text-label { font-size: 0.75rem; line-height: 1.5; letter-spacing: 0.08em; font-weight: 600; text-transform: uppercase; }
+    .text-gradient-brand { background: var(--gradient-brand); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .text-gradient-gold { background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* ========== Layout ========== */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+    .section-padding { padding: 6rem 0; }
+    .grid { display: grid; }
+    .flex { display: flex; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-1 { gap: 0.25rem; }
+    .gap-2 { gap: 0.5rem; }
+    .gap-3 { gap: 0.75rem; }
+    .gap-4 { gap: 1rem; }
+    .gap-5 { gap: 1.25rem; }
+    .gap-6 { gap: 1.5rem; }
+    .gap-8 { gap: 2rem; }
+    .gap-10 { gap: 2.5rem; }
+
+    /* ========== Buttons ========== */
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.625rem 1.25rem; border-radius: var(--radius); font-size: 0.875rem; font-weight: 500; transition: all var(--transition-smooth); white-space: nowrap; }
+    .btn-brand { background: var(--gradient-brand); color: #fff; box-shadow: var(--shadow-md); }
+    .btn-brand:hover { box-shadow: var(--shadow-glow-blue); transform: translateY(-1px); }
+    .btn-brand-outline { border: 1px solid rgba(43,127,232,0.4); color: var(--qed-blue); background: rgba(43,127,232,0.05); }
+    .btn-brand-outline:hover { background: rgba(43,127,232,0.1); border-color: rgba(43,127,232,0.6); }
+    .btn-hero-primary { background: var(--gradient-brand); color: #fff; box-shadow: var(--shadow-glow-blue); padding: 0.875rem 2.5rem; font-size: 1rem; font-weight: 600; border-radius: 0.625rem; }
+    .btn-hero-primary:hover { box-shadow: 0 0 50px rgba(43,127,232,0.35); transform: scale(1.02); }
+    .btn-hero-secondary { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); padding: 0.875rem 2.5rem; font-size: 1rem; font-weight: 600; border-radius: 0.625rem; }
+    .btn-hero-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.35); }
+    .btn-lg { padding: 0.75rem 2rem; font-size: 1rem; }
+
+    /* ========== Chip Label ========== */
+    .chip-label { display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; border-radius: 9999px; border: 1px solid rgba(43,127,232,0.3); color: var(--qed-cyan); background: rgba(43,127,232,0.08); }
+    .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--qed-cyan); margin-right: 8px; animation: pulse-glow 3s ease-in-out infinite; }
+
+    /* ========== Cards ========== */
+    .card-dark { background: var(--gradient-card-dark); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); transition: all var(--transition-smooth); }
+    .card-dark:hover { border-color: rgba(43,127,232,0.4); box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
+    .card-light { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); transition: all var(--transition-smooth); }
+    .card-light:hover { box-shadow: var(--shadow-md); border-color: rgba(43,127,232,0.3); transform: translateY(-2px); }
+
+    /* ========== Backgrounds ========== */
+    .section-dark { background: var(--gradient-hero); color: rgba(255,255,255,0.95); }
+    .section-light { background: linear-gradient(180deg, #F9FAFB, #F3F4F6); }
+    .section-white { background: #fff; }
+    .grid-pattern { background-image: linear-gradient(rgba(43,127,232,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(43,127,232,0.05) 1px, transparent 1px); background-size: 60px 60px; }
+    .dot-pattern { background-image: radial-gradient(rgba(43,127,232,0.15) 1px, transparent 1px); background-size: 24px 24px; }
+    .divider-gradient { height: 1px; background: linear-gradient(90deg, transparent, rgba(43,127,232,0.3), transparent); }
+
+    /* ========== Animations ========== */
+    @keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pulse-glow { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+    .animate-on-scroll { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+
+    /* ========== Navigation ========== */
+    .nav-fixed { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: all 0.3s ease; }
+    .nav-scrolled { background: rgba(11,14,20,0.85); backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid rgba(255,255,255,0.06); box-shadow: 0 1px 12px rgba(0,0,0,0.3); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+    .nav-link { padding: 0.5rem 0.875rem; border-radius: 0.375rem; font-size: 0.8125rem; font-weight: 500; color: rgba(255,255,255,0.6); transition: all 0.2s; }
+    .nav-link:hover, .nav-link.active { color: #fff; background: rgba(255,255,255,0.1); }
+    .nav-logo { display: flex; align-items: center; gap: 0.625rem; }
+    .nav-logo-icon { width: 36px; height: 36px; border-radius: 0.5rem; background: var(--gradient-brand); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-glow-blue); color: #fff; font-weight: 700; font-size: 0.875rem; }
+    .nav-logo-text { display: flex; flex-direction: column; }
+    .nav-logo-text span:first-child { color: #fff; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.05em; }
+    .nav-logo-text span:last-child { color: rgba(255,255,255,0.45); font-size: 0.625rem; letter-spacing: 0.12em; margin-top: 1px; }
+    .mobile-toggle { display: none; padding: 0.5rem; color: rgba(255,255,255,0.7); }
+    .mobile-menu { display: none; }
+
+    /* ========== Hero ========== */
+    #hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+    .hero-bg-img { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.4; }
+    .hero-grid { position: absolute; inset: 0; opacity: 0.3; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11,14,20,0.3), transparent, var(--qed-dark)); }
+    .hero-glow-1 { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse at center, rgba(43,127,232,0.12) 0%, transparent 70%); }
+    .hero-glow-2 { position: absolute; bottom: 0; right: 0; width: 500px; height: 400px; background: radial-gradient(ellipse at center, rgba(20,200,232,0.08) 0%, transparent 70%); }
+    .hero-content { position: relative; padding-top: 10rem; padding-bottom: 5rem; }
+    .hero-headline { color: #fff; }
+    .hero-subtitle { color: rgba(255,255,255,0.6); max-width: 640px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 7rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .stat-number { font-variant-numeric: tabular-nums; }
+    .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.3); transition: color 0.2s; font-size: 0.6875rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    .scroll-indicator:hover { color: rgba(255,255,255,0.6); }
+    .scroll-indicator svg { width: 16px; height: 16px; }
+
+    /* ========== Product Section ========== */
+    .product-card { overflow: hidden; }
+    .product-card-inner { display: flex; flex-direction: column; min-height: 320px; }
+    .product-img-wrap { position: relative; overflow: hidden; background: var(--qed-dark); min-height: 240px; }
+    .product-img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: all 0.5s; }
+    .product-card:hover .product-img-wrap img { opacity: 1; transform: scale(1.05); }
+    .product-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,14,20,0.6), transparent); }
+    .product-img-tag { position: absolute; bottom: 1rem; left: 1rem; }
+    .product-content { padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .product-icon { width: 40px; height: 40px; border-radius: 0.5rem; background: rgba(43,127,232,0.08); display: flex; align-items: center; justify-content: center; color: var(--qed-blue); }
+    .product-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .spec-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; }
+    .spec-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--qed-cyan); flex-shrink: 0; }
+
+    /* ========== Technology Section ========== */
+    .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .tech-card { padding: 2rem; }
+    .tech-icon { width: 44px; height: 44px; border-radius: 0.5rem; background: rgba(43,127,232,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--qed-cyan); }
+    .tech-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding-top: 3rem; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; }
+
+    /* ========== About Section ========== */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .about-img { border-radius: 0.75rem; overflow: hidden; position: relative; aspect-ratio: 16/10; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,14,20,0.4), transparent); }
+    .timeline { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+    .timeline-line { display: block; position: absolute; top: 2rem; left: 0; right: 0; height: 2px; background: var(--border); }
+    .timeline-line-fill { height: 100%; background: var(--gradient-brand); width: 0; transition: width 1.5s cubic-bezier(0.16,1,0.3,1); }
+    .timeline-item { text-align: center; position: relative; }
+    .timeline-dot { width: 64px; height: 64px; border-radius: 50%; background: #fff; border: 2px solid rgba(43,127,232,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; position: relative; z-index: 2; box-shadow: var(--shadow-sm); color: var(--qed-blue); }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .team-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--gradient-brand); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; color: #fff; font-size: 1.5rem; font-weight: 700; }
+
+    /* ========== News Section ========== */
+    .news-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 2rem; }
+    .news-featured { position: relative; overflow: hidden; border-radius: var(--radius); }
+    .news-featured-bg { position: absolute; inset: 0; background: var(--gradient-hero); }
+    .news-featured-pattern { position: absolute; inset: 0; opacity: 0.2; }
+    .news-featured-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; }
+    .news-item { padding: 1.25rem; cursor: pointer; }
+    .news-category { font-size: 0.625rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.125rem 0.5rem; border-radius: 9999px; background: rgba(43,127,232,0.06); color: var(--qed-blue); }
+
+    /* ========== Investor Section ========== */
+    .ir-highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 4rem; }
+    .ir-card { padding: 2rem; text-align: center; }
+    .ir-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .ir-section { padding: 2rem; }
+    .ir-section-inner { display: flex; gap: 1rem; }
+    .ir-icon { width: 44px; height: 44px; border-radius: 0.5rem; background: rgba(232,168,50,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--qed-gold); }
+    .ir-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .ir-tag { padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.6875rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); transition: all 0.2s; cursor: pointer; }
+    .ir-tag:hover { border-color: rgba(232,168,50,0.3); color: var(--qed-gold); }
+
+    /* ========== Contact Section ========== */
+    .contact-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 4rem; }
+    .contact-info-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-icon { width: 40px; height: 40px; border-radius: 0.5rem; background: rgba(43,127,232,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--qed-blue); }
+    .contact-map { border-radius: 0.75rem; overflow: hidden; aspect-ratio: 4/3; background: #f0f1f3; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--muted); }
+    .form-card { padding: 2.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label { display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--foreground); }
+    .form-input { width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg-light); font-size: 0.875rem; font-family: inherit; color: var(--foreground); transition: all 0.2s; outline: none; }
+    .form-input:focus { border-color: rgba(43,127,232,0.5); box-shadow: 0 0 0 3px rgba(43,127,232,0.1); }
+    .form-textarea { resize: none; min-height: 100px; }
+
+    /* ========== Footer ========== */
+    .footer { border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 2rem; padding: 5rem 0; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.625rem; }
+    .footer-links a { font-size: 0.875rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--qed-cyan); }
+    .footer-links-title { font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 1rem; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; font-size: 0.6875rem; color: rgba(255,255,255,0.3); }
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ========== SVG Icons (inline) ========== */
+    .icon { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-lg { width: 28px; height: 28px; }
+    .icon-sm { width: 14px; height: 14px; }
+
+    /* ========== Responsive ========== */
+    @media (max-width: 1024px) {
+      .text-display-xl { font-size: 3.5rem; }
+      .text-display-lg { font-size: 2.5rem; }
+      .text-display-md { font-size: 2rem; }
+      .nav-links, .nav-cta { display: none; }
+      .mobile-toggle { display: block; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .product-card-inner { flex-direction: column !important; }
+      .product-card-inner > div { width: 100% !important; }
+      .tech-grid { grid-template-columns: repeat(2, 1fr); }
+      .tech-stats { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .timeline { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+      .timeline-line { display: none; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .news-grid { grid-template-columns: 1fr; }
+      .ir-highlights { grid-template-columns: repeat(2, 1fr); }
+      .ir-sections { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .text-display-xl { font-size: 2.5rem; }
+      .text-display-lg { font-size: 2rem; }
+      .text-display-md { font-size: 1.75rem; }
+      .section-padding { padding: 4rem 0; }
+      .hero-content { padding-top: 7rem; }
+      .hero-stats { margin-top: 4rem; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: 1fr; }
+      .ir-highlights { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Mobile menu */
+    .mobile-menu.open { display: block; position: absolute; top: 100%; left: 0; right: 0; background: rgba(11,14,20,0.95); backdrop-filter: blur(16px); border-top: 1px solid rgba(255,255,255,0.06); padding: 1rem 1.5rem 1.5rem; }
+    .mobile-menu a { display: block; padding: 0.75rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.6); transition: all 0.2s; }
+    .mobile-menu a:hover { color: #fff; background: rgba(255,255,255,0.04); }
+  </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header id="nav" class="nav-fixed">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo" onclick="smoothScroll(event, 'hero')">
+      <div class="nav-logo-icon">Q</div>
+      <div class="nav-logo-text">
+        <span>QED MICRO</span>
+        <span>质能达微电子</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#hero" class="nav-link active" onclick="smoothScroll(event, 'hero')">首页</a>
+      <a href="#products" class="nav-link" onclick="smoothScroll(event, 'products')">产品中心</a>
+      <a href="#technology" class="nav-link" onclick="smoothScroll(event, 'technology')">技术优势</a>
+      <a href="#about" class="nav-link" onclick="smoothScroll(event, 'about')">关于我们</a>
+      <a href="#news" class="nav-link" onclick="smoothScroll(event, 'news')">新闻动态</a>
+      <a href="#investor" class="nav-link" onclick="smoothScroll(event, 'investor')">投资者关系</a>
+      <a href="#contact" class="nav-link" onclick="smoothScroll(event, 'contact')">联系我们</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-brand" onclick="smoothScroll(event, 'contact')" style="padding:0.5rem 1rem;font-size:0.8125rem;">商务合作</a>
+    </div>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()">
+      <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#hero" onclick="smoothScroll(event, 'hero')">首页</a>
+    <a href="#products" onclick="smoothScroll(event, 'products')">产品中心</a>
+    <a href="#technology" onclick="smoothScroll(event, 'technology')">技术优势</a>
+    <a href="#about" onclick="smoothScroll(event, 'about')">关于我们</a>
+    <a href="#news" onclick="smoothScroll(event, 'news')">新闻动态</a>
+    <a href="#investor" onclick="smoothScroll(event, 'investor')">投资者关系</a>
+    <a href="#contact" onclick="smoothScroll(event, 'contact')">联系我们</a>
+    <div style="padding:0.75rem 1rem 0;margin-top:0.75rem;border-top:1px solid rgba(255,255,255,0.06);">
+      <a href="#contact" class="btn btn-brand" style="width:100%;text-align:center;" onclick="smoothScroll(event, 'contact')">商务合作</a>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== HERO ==================== -->
+<section id="hero" class="section-dark">
+  <div class="hero-bg-img" style="background-image:url(images/hero-bg.png)"></div>
+  <div class="hero-grid grid-pattern"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="container hero-content">
+    <div style="max-width:800px">
+      <div class="chip-label animate-on-scroll" style="margin-bottom:2rem;">
+        <span class="chip-dot"></span>
+        深圳市质能达微电子科技有限公司
+      </div>
+      <h1 class="text-display-lg hero-headline animate-on-scroll" style="margin-bottom:1.5rem;">
+        自主芯片，<br><span class="text-gradient-brand" style="font-size:inherit;">智驱未来</span>
+      </h1>
+      <p class="text-body-lg hero-subtitle animate-on-scroll" style="margin-bottom:2.5rem;">
+        专注超声波MEMS+CMOS传感器芯片、BMS电池管理芯片、LED驱动芯片的自主研发与设计，以市场为导向，为新能源、智能感知和物联网领域提供AI一体化芯片解决方案。
+      </p>
+      <div class="hero-ctas animate-on-scroll">
+        <a href="#products" class="btn btn-hero-primary" onclick="smoothScroll(event, 'products')">探索产品</a>
+        <a href="#technology" class="btn btn-hero-secondary" onclick="smoothScroll(event, 'technology')">技术优势</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="animate-on-scroll">
+        <div class="text-display-md stat-number" style="color:#fff"><span data-count="10">0</span><span class="text-gradient-brand">+</span></div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.45);margin-top:0.25rem">年行业经验</div>
+      </div>
+      <div class="animate-on-scroll">
+        <div class="text-display-md stat-number" style="color:#fff"><span data-count="50">0</span><span class="text-gradient-brand">+</span></div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.45);margin-top:0.25rem">自主芯片产品</div>
+      </div>
+      <div class="animate-on-scroll">
+        <div class="text-display-md stat-number" style="color:#fff"><span data-count="100">0</span><span class="text-gradient-brand">+</span></div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.45);margin-top:0.25rem">技术专利</div>
+      </div>
+      <div class="animate-on-scroll">
+        <div class="text-display-md stat-number" style="color:#fff"><span data-count="4">0</span><span class="text-gradient-brand">大</span></div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.45);margin-top:0.25rem">核心产品线</div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#products" class="scroll-indicator animate-float" onclick="smoothScroll(event, 'products')">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </a>
+</section>
+
+<!-- ==================== PRODUCTS ==================== -->
+<section id="products" class="section-light section-padding">
+  <div class="container">
+    <div class="animate-on-scroll" style="max-width:640px;margin-bottom:4rem;">
+      <span class="text-label" style="color:var(--qed-blue);display:block;margin-bottom:0.75rem;">Products</span>
+      <h2 class="text-display-md" style="margin-bottom:1rem;">核心产品矩阵</h2>
+      <p class="text-body-lg" style="color:var(--muted);">四大自主研发芯片产品线，覆盖感知、能源管理、照明和智能控制全场景</p>
+    </div>
+
+    <!-- Product 1: MEMS -->
+    <div class="card-light product-card animate-on-scroll" style="margin-bottom:1.5rem;">
+      <div class="product-card-inner" style="display:flex;flex-direction:row;">
+        <div class="product-img-wrap" style="width:40%;min-height:320px;">
+          <img src="images/product-mems.png" alt="超声波MEMS+CMOS传感器芯片" loading="lazy" />
+          <div class="product-img-overlay"></div>
+          <div class="product-img-tag"><span class="chip-label">MEMS+CMOS</span></div>
+        </div>
+        <div class="product-content" style="width:60%;">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div class="product-icon">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3 class="text-display-sm">超声波传感器芯片</h3>
+          </div>
+          <p class="text-body-md" style="color:var(--muted);margin-bottom:1.5rem;line-height:1.8;">
+            基于MEMS+CMOS融合工艺的超声波传感器芯片，集成AI算法处理单元，实现高精度距离测量与环境感知，广泛应用于无人机避障、自动驾驶和工业测距。
+          </p>
+          <div class="product-specs" style="margin-bottom:1.5rem;">
+            <div class="spec-item"><span class="spec-dot"></span>MEMS+CMOS一体化</div>
+            <div class="spec-item"><span class="spec-dot"></span>AI算法集成</div>
+            <div class="spec-item"><span class="spec-dot"></span>高精度测距</div>
+            <div class="spec-item"><span class="spec-dot"></span>低功耗设计</div>
+          </div>
+          <a href="#contact" class="btn btn-brand-outline" onclick="smoothScroll(event, 'contact')">了解详情 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2: BMS -->
+    <div class="card-light product-card animate-on-scroll" style="margin-bottom:1.5rem;">
+      <div class="product-card-inner" style="display:flex;flex-direction:row-reverse;">
+        <div class="product-img-wrap" style="width:40%;min-height:320px;">
+          <img src="images/product-bms.png" alt="BMS电池管理芯片" loading="lazy" />
+          <div class="product-img-overlay"></div>
+          <div class="product-img-tag"><span class="chip-label">BMS</span></div>
+        </div>
+        <div class="product-content" style="width:60%;">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div class="product-icon">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg>
+            </div>
+            <h3 class="text-display-sm">BMS电池管理芯片</h3>
+          </div>
+          <p class="text-body-md" style="color:var(--muted);margin-bottom:1.5rem;line-height:1.8;">
+            面向新能源汽车和储能系统的电池管理芯片，支持多节锂电池串联管理，精确电压/电流/温度监测，内置均衡与保护功能，已在知名无人机企业量产应用。
+          </p>
+          <div class="product-specs" style="margin-bottom:1.5rem;">
+            <div class="spec-item"><span class="spec-dot"></span>多串电池管理</div>
+            <div class="spec-item"><span class="spec-dot"></span>高精度ADC采样</div>
+            <div class="spec-item"><span class="spec-dot"></span>主动均衡技术</div>
+            <div class="spec-item"><span class="spec-dot"></span>多重保护机制</div>
+          </div>
+          <a href="#contact" class="btn btn-brand-outline" onclick="smoothScroll(event, 'contact')">了解详情 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3: LED -->
+    <div class="card-light product-card animate-on-scroll" style="margin-bottom:1.5rem;">
+      <div class="product-card-inner" style="display:flex;flex-direction:row;">
+        <div class="product-img-wrap" style="width:40%;min-height:320px;">
+          <img src="images/product-led.png" alt="LED驱动芯片" loading="lazy" />
+          <div class="product-img-overlay"></div>
+          <div class="product-img-tag"><span class="chip-label">LED Driver</span></div>
+        </div>
+        <div class="product-content" style="width:60%;">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div class="product-icon">
+              <svg class="icon" viewBox="0 0 24 24"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+            </div>
+            <h3 class="text-display-sm">LED驱动芯片</h3>
+          </div>
+          <p class="text-body-md" style="color:var(--muted);margin-bottom:1.5rem;line-height:1.8;">
+            高效率LED恒流驱动芯片，支持宽电压输入，内置过温/过流保护，适用于LED照明、汽车灯光和显示屏背光等多种应用场景。
+          </p>
+          <div class="product-specs" style="margin-bottom:1.5rem;">
+            <div class="spec-item"><span class="spec-dot"></span>高转换效率</div>
+            <div class="spec-item"><span class="spec-dot"></span>宽电压输入</div>
+            <div class="spec-item"><span class="spec-dot"></span>恒流精度±2%</div>
+            <div class="spec-item"><span class="spec-dot"></span>完善保护机制</div>
+          </div>
+          <a href="#contact" class="btn btn-brand-outline" onclick="smoothScroll(event, 'contact')">了解详情 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4: RGB -->
+    <div class="card-light product-card animate-on-scroll" style="margin-bottom:0;">
+      <div class="product-card-inner" style="display:flex;flex-direction:row-reverse;">
+        <div class="product-img-wrap" style="width:40%;min-height:320px;">
+          <img src="images/product-rgb.png" alt="RGB控制芯片" loading="lazy" />
+          <div class="product-img-overlay"></div>
+          <div class="product-img-tag"><span class="chip-label">RGB IC</span></div>
+        </div>
+        <div class="product-content" style="width:60%;">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div class="product-icon">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+            </div>
+            <h3 class="text-display-sm">RGB控制芯片</h3>
+          </div>
+          <p class="text-body-md" style="color:var(--muted);margin-bottom:1.5rem;line-height:1.8;">
+            多通道RGB LED控制芯片，支持SPI/I2C通信协议，可实现丰富灯效控制，广泛应用于智能家居照明、氛围灯和电竞外设等领域。
+          </p>
+          <div class="product-specs" style="margin-bottom:1.5rem;">
+            <div class="spec-item"><span class="spec-dot"></span>多通道独立控制</div>
+            <div class="spec-item"><span class="spec-dot"></span>SPI/I2C接口</div>
+            <div class="spec-item"><span class="spec-dot"></span>256级灰度调节</div>
+            <div class="spec-item"><span class="spec-dot"></span>级联扩展能力</div>
+          </div>
+          <a href="#contact" class="btn btn-brand-outline" onclick="smoothScroll(event, 'contact')">了解详情 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TECHNOLOGY ==================== -->
+<section id="technology" class="section-dark section-padding" style="position:relative;overflow:hidden;">
+  <div class="dot-pattern" style="position:absolute;inset:0;opacity:0.2;"></div>
+  <div style="position:absolute;top:50%;left:0;width:600px;height:600px;transform:translateY(-50%) translateX(-50%);background:radial-gradient(ellipse at center,rgba(43,127,232,0.08) 0%,transparent 70%);"></div>
+
+  <div class="container" style="position:relative;">
+    <div class="animate-on-scroll" style="max-width:640px;margin-bottom:4rem;">
+      <span class="text-label" style="color:var(--qed-cyan);display:block;margin-bottom:0.75rem;">Technology</span>
+      <h2 class="text-display-md" style="color:#fff;margin-bottom:1rem;">技术创新驱动</h2>
+      <p class="text-body-lg" style="color:rgba(255,255,255,0.55);">以博士领衔的研发团队为核心，持续突破芯片设计关键技术</p>
+    </div>
+
+    <div class="tech-grid" style="margin-bottom:0;">
+      <div class="card-dark tech-card animate-on-scroll">
+        <div class="tech-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a6 6 0 1 0 6 6 6 6 0 0 0-6-6zm0 10a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"/></svg></div>
+        <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.75rem;">MEMS+CMOS融合技术</h3>
+        <p class="text-body-sm" style="color:rgba(255,255,255,0.5);line-height:1.7;">独创MEMS微机电系统与CMOS工艺深度融合技术，实现传感器与信号处理电路的单芯片集成，大幅降低系统成本与体积。</p>
+      </div>
+      <div class="card-dark tech-card animate-on-scroll">
+        <div class="tech-icon"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.75rem;">AI边缘计算架构</h3>
+        <p class="text-body-sm" style="color:rgba(255,255,255,0.5);line-height:1.7;">芯片内置神经网络加速单元，支持边缘端实时AI推理，将传感数据到智能决策的延迟降低至毫秒级。</p>
+      </div>
+      <div class="card-dark tech-card animate-on-scroll">
+        <div class="tech-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.75rem;">全链路安全设计</h3>
+        <p class="text-body-sm" style="color:rgba(255,255,255,0.5);line-height:1.7;">BMS芯片采用多层级安全保护架构，集成硬件看门狗、冗余采样通道和故障自诊断机制，满足车规级功能安全要求。</p>
+      </div>
+      <div class="card-dark tech-card animate-on-scroll">
+        <div class="tech-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.75rem;">先进工艺制程</h3>
+        <p class="text-body-sm" style="color:rgba(255,255,255,0.5);line-height:1.7;">采用业界领先的半导体工艺节点，结合自研电路架构优化，在性能与功耗之间实现最优平衡。</p>
+      </div>
+      <div class="card-dark tech-card animate-on-scroll">
+        <div class="tech-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+        <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.75rem;">完整IP自主可控</h3>
+        <p class="text-body-sm" style="color:rgba(255,255,255,0.5);line-height:1.7;">核心数字/模拟IP全部自主研发，拥有完整知识产权体系，确保供应链安全和技术迭代自主性。</p>
+      </div>
+      <div class="card-dark tech-card animate-on-scroll">
+        <div class="tech-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.75rem;">全栈交付能力</h3>
+        <p class="text-body-sm" style="color:rgba(255,255,255,0.5);line-height:1.7;">从芯片设计、验证仿真到封装测试，再到驱动软件和应用方案，提供一站式交付服务。</p>
+      </div>
+    </div>
+
+    <div class="tech-stats">
+      <div class="animate-on-scroll" style="text-align:center;">
+        <div class="text-display-md stat-number" style="color:#fff"><span data-count="100">0</span><span class="text-gradient-brand">+</span></div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.4);margin-top:0.25rem;">技术专利</div>
+      </div>
+      <div class="animate-on-scroll" style="text-align:center;">
+        <div class="text-display-md stat-number" style="color:#fff"><span data-count="30">0</span><span class="text-gradient-brand">+</span></div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.4);margin-top:0.25rem;">核心IP</div>
+      </div>
+      <div class="animate-on-scroll" style="text-align:center;">
+        <div class="text-display-md stat-number" style="color:#fff"><span data-count="15">0</span><span class="text-gradient-brand">nm</span></div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.4);margin-top:0.25rem;">先进制程</div>
+      </div>
+      <div class="animate-on-scroll" style="text-align:center;">
+        <div class="text-display-md stat-number" style="color:#fff">99.8<span class="text-gradient-brand">%</span></div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.4);margin-top:0.25rem;">产品良率</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about" class="section-light section-padding">
+  <div class="container">
+    <div class="animate-on-scroll" style="max-width:640px;margin-bottom:4rem;">
+      <span class="text-label" style="color:var(--qed-blue);display:block;margin-bottom:0.75rem;">About Us</span>
+      <h2 class="text-display-md" style="margin-bottom:1rem;">关于质能达</h2>
+      <p class="text-body-lg" style="color:var(--muted);">以"质量为本，能力为源，达者为先"为企业理念，矢志不渝推动中国芯片自主创新</p>
+    </div>
+
+    <!-- Company Overview -->
+    <div class="about-grid animate-on-scroll" style="margin-bottom:5rem;">
+      <div style="display:flex;flex-direction:column;justify-content:center;">
+        <h3 class="text-display-sm" style="margin-bottom:1.5rem;">专注自主IC芯片设计的<span class="text-gradient-brand">创新型</span>企业</h3>
+        <div class="text-body-md" style="color:var(--muted);line-height:1.8;">
+          <p style="margin-bottom:1rem;">深圳市质能达微电子科技有限公司（QED Micro）成立于2012年，是一家专注于自主芯片产品设计及系统研发、生产与销售的国家高新技术企业。</p>
+          <p style="margin-bottom:1rem;">公司配备有设施先进的研发中心，拥有以林丰成博士为核心的博士、硕士科研团队。公司以市场为产品开发导向，在新能源BMS电池管理、超声波MEMS传感器、LED驱动和RGB控制等芯片领域拥有深厚积累。</p>
+          <p>2014年起，公司BMS芯片已成功应用于国内知名无人飞机公司。当前正全力推进超声波MEMS+CMOS芯片AI一体化解决方案的研发，致力于成为全球领先的感知智能芯片解决方案提供商。</p>
+        </div>
+      </div>
+      <div class="about-img">
+        <img src="images/about-lab.png" alt="质能达微电子研发中心" />
+        <div class="about-img-overlay"></div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <h3 class="text-display-sm animate-on-scroll" style="text-align:center;margin-bottom:3rem;">发展历程</h3>
+    <div class="timeline animate-on-scroll" id="timeline" style="margin-bottom:5rem;">
+      <div class="timeline-line"><div class="timeline-line-fill" id="timelineFill"></div></div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+        <span class="text-label" style="color:var(--qed-blue);">2012</span>
+        <h4 style="font-weight:600;font-size:0.875rem;margin:0.5rem 0 0.25rem;">公司成立</h4>
+        <p class="text-body-sm" style="color:var(--muted);font-size:0.75rem;">深圳市质能达微电子科技有限公司在深圳龙华成立</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <span class="text-label" style="color:var(--qed-blue);">2014</span>
+        <h4 style="font-weight:600;font-size:0.875rem;margin:0.5rem 0 0.25rem;">BMS量产突破</h4>
+        <p class="text-body-sm" style="color:var(--muted);font-size:0.75rem;">BMS芯片成功量产，被知名无人飞机企业采用</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <span class="text-label" style="color:var(--qed-blue);">2018</span>
+        <h4 style="font-weight:600;font-size:0.875rem;margin:0.5rem 0 0.25rem;">LED/RGB拓展</h4>
+        <p class="text-body-sm" style="color:var(--muted);font-size:0.75rem;">LED驱动芯片与RGB控制IC产品线成功推出</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c6 3 10 0 12-2V12"/></svg></div>
+        <span class="text-label" style="color:var(--qed-blue);">2020</span>
+        <h4 style="font-weight:600;font-size:0.875rem;margin:0.5rem 0 0.25rem;">高新认定</h4>
+        <p class="text-body-sm" style="color:var(--muted);font-size:0.75rem;">获得国家高新技术企业认定，累计专利突破50项</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <span class="text-label" style="color:var(--qed-blue);">2023</span>
+        <h4 style="font-weight:600;font-size:0.875rem;margin:0.5rem 0 0.25rem;">MEMS+CMOS研发</h4>
+        <p class="text-body-sm" style="color:var(--muted);font-size:0.75rem;">启动超声波MEMS+CMOS传感器AI一体化方案研发</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <span class="text-label" style="color:var(--qed-blue);">2025</span>
+        <h4 style="font-weight:600;font-size:0.875rem;margin:0.5rem 0 0.25rem;">上市筹备</h4>
+        <p class="text-body-sm" style="color:var(--muted);font-size:0.75rem;">参加太湖湾国际精英创新创业大赛，加速IPO进程</p>
+      </div>
+    </div>
+
+    <!-- Team -->
+    <h3 class="text-display-sm animate-on-scroll" style="text-align:center;margin-bottom:3rem;">管理团队</h3>
+    <div class="team-grid">
+      <div class="card-light animate-on-scroll" style="padding:2rem;text-align:center;">
+        <div class="team-avatar">林</div>
+        <h4 style="font-size:1.125rem;font-weight:600;margin-bottom:0.25rem;">林丰成 博士</h4>
+        <p class="text-body-sm" style="color:var(--qed-blue);font-weight:500;margin-bottom:1rem;">创始人 / CEO</p>
+        <p class="text-body-sm" style="color:var(--muted);line-height:1.7;">国家教委聘请的微电子专业硕士教材委员会编辑专家，拥有超过25年半导体行业经验，主导多项国家级芯片项目研发。</p>
+      </div>
+      <div class="card-light animate-on-scroll" style="padding:2rem;text-align:center;">
+        <div class="team-avatar">张</div>
+        <h4 style="font-size:1.125rem;font-weight:600;margin-bottom:0.25rem;">研发副总裁</h4>
+        <p class="text-body-sm" style="color:var(--qed-blue);font-weight:500;margin-bottom:1rem;">首席技术官</p>
+        <p class="text-body-sm" style="color:var(--muted);line-height:1.7;">资深IC设计工程师，10余年模拟/数模混合芯片设计经验，主导BMS及MEMS产品线技术架构设计。</p>
+      </div>
+      <div class="card-light animate-on-scroll" style="padding:2rem;text-align:center;">
+        <div class="team-avatar">王</div>
+        <h4 style="font-size:1.125rem;font-weight:600;margin-bottom:0.25rem;">产品总监</h4>
+        <p class="text-body-sm" style="color:var(--qed-blue);font-weight:500;margin-bottom:1rem;">产品战略</p>
+        <p class="text-body-sm" style="color:var(--muted);line-height:1.7;">半导体行业资深产品经理，深耕新能源和物联网领域，擅长将技术优势转化为市场竞争力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NEWS ==================== -->
+<section id="news" class="section-white section-padding">
+  <div class="container">
+    <div class="animate-on-scroll flex items-center justify-between" style="margin-bottom:3rem;">
+      <div>
+        <span class="text-label" style="color:var(--qed-blue);display:block;margin-bottom:0.75rem;">News</span>
+        <h2 class="text-display-md">新闻动态</h2>
+      </div>
+      <a href="#" class="btn btn-brand-outline" style="display:none;" id="newsBtn">全部新闻 →</a>
+    </div>
+
+    <div class="news-grid animate-on-scroll">
+      <!-- Featured -->
+      <div class="card-light news-featured" style="cursor:pointer;min-height:400px;">
+        <div class="news-featured-bg"></div>
+        <div class="news-featured-pattern grid-pattern"></div>
+        <div class="news-featured-content">
+          <span class="chip-label" style="width:fit-content;margin-bottom:0.75rem;">赛事动态</span>
+          <h3 style="font-size:1.25rem;font-weight:600;color:#fff;margin-bottom:0.5rem;">质能达参加宜兴太湖湾国际精英创新创业大赛</h3>
+          <p class="text-body-sm" style="color:rgba(255,255,255,0.6);">由林丰成博士领衔的研发团队展示超声波MEMS+CMOS AI一体化芯片方案，获得评委高度评价。</p>
+          <div class="text-body-sm" style="color:rgba(255,255,255,0.4);margin-top:1rem;display:flex;align-items:center;gap:0.5rem;">
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            2025-08-09
+          </div>
+        </div>
+      </div>
+
+      <!-- News List -->
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="card-light news-item">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+            <span class="news-category">产品发布</span>
+            <span class="text-body-sm" style="color:var(--muted);font-size:0.6875rem;">2025-06-15</span>
+          </div>
+          <h4 style="font-size:0.875rem;font-weight:600;">新一代BMS芯片通过车规级认证</h4>
+        </div>
+        <div class="card-light news-item">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+            <span class="news-category">企业荣誉</span>
+            <span class="text-body-sm" style="color:var(--muted);font-size:0.6875rem;">2025-04-20</span>
+          </div>
+          <h4 style="font-size:0.875rem;font-weight:600;">获评深圳市专精特新中小企业</h4>
+        </div>
+        <div class="card-light news-item">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+            <span class="news-category">技术突破</span>
+            <span class="text-body-sm" style="color:var(--muted);font-size:0.6875rem;">2025-03-01</span>
+          </div>
+          <h4 style="font-size:0.875rem;font-weight:600;">MEMS超声波传感器芯片完成A轮流片</h4>
+        </div>
+        <div class="card-light news-item">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+            <span class="news-category">合作签约</span>
+            <span class="text-body-sm" style="color:var(--muted);font-size:0.6875rem;">2024-12-10</span>
+          </div>
+          <h4 style="font-size:0.875rem;font-weight:600;">与头部新能源车企达成战略合作</h4>
+        </div>
+        <div class="card-light news-item">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+            <span class="news-category">行业活动</span>
+            <span class="text-body-sm" style="color:var(--muted);font-size:0.6875rem;">2024-09-22</span>
+          </div>
+          <h4 style="font-size:0.875rem;font-weight:600;">亮相深圳国际半导体展览会</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== INVESTOR ==================== -->
+<section id="investor" class="section-dark section-padding" style="position:relative;overflow:hidden;">
+  <div class="dot-pattern" style="position:absolute;inset:0;opacity:0.1;"></div>
+  <div style="position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(ellipse at center,rgba(232,168,50,0.05) 0%,transparent 70%);"></div>
+
+  <div class="container" style="position:relative;">
+    <div class="animate-on-scroll" style="max-width:640px;margin-bottom:4rem;">
+      <span class="text-label" style="color:var(--qed-gold);display:block;margin-bottom:0.75rem;">Investor Relations</span>
+      <h2 class="text-display-md" style="color:#fff;margin-bottom:1rem;">投资者关系</h2>
+      <p class="text-body-lg" style="color:rgba(255,255,255,0.55);">坚持公开、公平、公正原则，积极维护投资者权益，实现公司与投资者的共同成长</p>
+    </div>
+
+    <div class="ir-highlights animate-on-scroll">
+      <div class="card-dark ir-card">
+        <svg class="icon-lg" viewBox="0 0 24 24" style="color:var(--qed-gold);margin:0 auto 1rem;" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <div class="text-display-sm text-gradient-gold">持续增长</div>
+        <div style="font-size:0.875rem;font-weight:600;color:rgba(255,255,255,0.9);margin:0.25rem 0;">营收增长</div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.4);">近三年营收复合增长率</div>
+      </div>
+      <div class="card-dark ir-card">
+        <svg class="icon-lg" viewBox="0 0 24 24" style="color:var(--qed-gold);margin:0 auto 1rem;" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <div class="text-display-sm text-gradient-gold">&gt;20%</div>
+        <div style="font-size:0.875rem;font-weight:600;color:rgba(255,255,255,0.9);margin:0.25rem 0;">研发投入</div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.4);">营收占比持续加大</div>
+      </div>
+      <div class="card-dark ir-card">
+        <svg class="icon-lg" viewBox="0 0 24 24" style="color:var(--qed-gold);margin:0 auto 1rem;" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="text-display-sm text-gradient-gold">200+</div>
+        <div style="font-size:0.875rem;font-weight:600;color:rgba(255,255,255,0.9);margin:0.25rem 0;">客户覆盖</div>
+        <div class="text-body-sm" style="color:rgba(255,255,255,0.4);">覆盖行业头部客户</div>
+      </div>
+    </div>
+
+    <div class="ir-sections animate-on-scroll">
+      <div class="card-dark ir-section">
+        <div class="ir-section-inner">
+          <div class="ir-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+          <div>
+            <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.5rem;">财务信息</h3>
+            <p class="text-body-sm" style="color:rgba(255,255,255,0.5);margin-bottom:1rem;">定期披露财务报告、年报、季报等关键财务数据</p>
+            <div class="ir-tags"><span class="ir-tag">年度报告</span><span class="ir-tag">季度报告</span><span class="ir-tag">财务摘要</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-dark ir-section">
+        <div class="ir-section-inner">
+          <div class="ir-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div>
+            <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.5rem;">公司治理</h3>
+            <p class="text-body-sm" style="color:rgba(255,255,255,0.5);margin-bottom:1rem;">完善的公司治理结构，确保决策科学、运营规范</p>
+            <div class="ir-tags"><span class="ir-tag">公司章程</span><span class="ir-tag">治理制度</span><span class="ir-tag">内部控制</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-dark ir-section">
+        <div class="ir-section-inner">
+          <div class="ir-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div>
+            <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.5rem;">公告与通知</h3>
+            <p class="text-body-sm" style="color:rgba(255,255,255,0.5);margin-bottom:1rem;">及时发布公司重大事项公告，保障投资者知情权</p>
+            <div class="ir-tags"><span class="ir-tag">临时公告</span><span class="ir-tag">定期公告</span><span class="ir-tag">股东大会通知</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-dark ir-section">
+        <div class="ir-section-inner">
+          <div class="ir-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div>
+            <h3 style="font-size:1.125rem;font-weight:600;color:#fff;margin-bottom:0.5rem;">投资者服务</h3>
+            <p class="text-body-sm" style="color:rgba(255,255,255,0.5);margin-bottom:1rem;">建立多渠道投资者沟通机制，倾听投资者声音</p>
+            <div class="ir-tags"><span class="ir-tag">投资者热线</span><span class="ir-tag">在线互动</span><span class="ir-tag">实地调研</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="animate-on-scroll" style="text-align:center;margin-top:3rem;">
+      <a href="#" class="btn btn-hero-secondary btn-lg">下载投资者手册</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact" class="section-light section-padding">
+  <div class="container">
+    <div class="animate-on-scroll" style="max-width:640px;margin-bottom:4rem;">
+      <span class="text-label" style="color:var(--qed-blue);display:block;margin-bottom:0.75rem;">Contact</span>
+      <h2 class="text-display-md" style="margin-bottom:1rem;">联系我们</h2>
+      <p class="text-body-lg" style="color:var(--muted);">期待与您探讨芯片技术方案与合作机会</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="animate-on-scroll">
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="text-body-sm" style="color:var(--muted);margin-bottom:0.125rem;">公司地址</div>
+            <div class="text-body-md" style="font-weight:500;">深圳市龙华区民治街道质能达科技大厦</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <div class="text-body-sm" style="color:var(--muted);margin-bottom:0.125rem;">联系电话</div>
+            <div class="text-body-md" style="font-weight:500;">0755-2888-8888</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <div class="text-body-sm" style="color:var(--muted);margin-bottom:0.125rem;">商务邮箱</div>
+            <div class="text-body-md" style="font-weight:500;">business@qedmicro.com</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <div class="text-body-sm" style="color:var(--muted);margin-bottom:0.125rem;">工作时间</div>
+            <div class="text-body-md" style="font-weight:500;">周一至周五 9:00-18:00</div>
+          </div>
+        </div>
+        <div class="contact-map" style="margin-top:1rem;">
+          <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--qed-blue);margin-bottom:0.5rem;width:32px;height:32px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>深圳市龙华区</span>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll">
+        <div class="card-light form-card">
+          <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;">商务合作咨询</h3>
+          <form id="contactForm">
+            <div class="form-row">
+              <div>
+                <label class="form-label">姓名 *</label>
+                <input type="text" class="form-input" placeholder="请输入姓名" required />
+              </div>
+              <div>
+                <label class="form-label">公司</label>
+                <input type="text" class="form-input" placeholder="请输入公司名称" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label class="form-label">邮箱 *</label>
+                <input type="email" class="form-input" placeholder="请输入邮箱" required />
+              </div>
+              <div>
+                <label class="form-label">电话</label>
+                <input type="tel" class="form-input" placeholder="请输入联系电话" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">需求描述 *</label>
+              <textarea class="form-input form-textarea" placeholder="请描述您的需求或合作意向..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-brand btn-lg" id="submitBtn">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:0.5rem;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              提交咨询
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="section-dark footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-logo" style="margin-bottom:1.5rem;">
+          <div class="nav-logo-icon">Q</div>
+          <div class="nav-logo-text">
+            <span>QED MICRO</span>
+            <span>质能达微电子</span>
+          </div>
+        </div>
+        <p class="text-body-sm" style="color:rgba(255,255,255,0.45);max-width:280px;line-height:1.7;margin-bottom:1.5rem;">
+          深圳市质能达微电子科技有限公司 — 专注自主IC芯片设计，为新能源、智能感知和物联网领域提供创新芯片解决方案。
+        </p>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.875rem;color:rgba(255,255,255,0.4);">
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--qed-blue)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            深圳市龙华区
+          </div>
+          <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.875rem;color:rgba(255,255,255,0.4);">
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--qed-blue)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.8.3 1.59.52 2.36a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.77.22 1.56.39 2.36.52A2 2 0 0 1 22 16.92z"/></svg>
+            0755-2888-8888
+          </div>
+          <div style="display:flex;align-items:center;gap:0.625rem;font-size:0.875rem;color:rgba(255,255,255,0.4);">
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="var(--qed-blue)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@qedmicro.com
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-links-title">产品中心</div>
+        <ul class="footer-links">
+          <li><a href="#products" onclick="smoothScroll(event, 'products')">超声波MEMS传感器</a></li>
+          <li><a href="#products" onclick="smoothScroll(event, 'products')">BMS电池管理芯片</a></li>
+          <li><a href="#products" onclick="smoothScroll(event, 'products')">LED驱动芯片</a></li>
+          <li><a href="#products" onclick="smoothScroll(event, 'products')">RGB控制IC</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-links-title">关于质能达</div>
+        <ul class="footer-links">
+          <li><a href="#about" onclick="smoothScroll(event, 'about')">公司简介</a></li>
+          <li><a href="#about" onclick="smoothScroll(event, 'about')">发展历程</a></li>
+          <li><a href="#about" onclick="smoothScroll(event, 'about')">管理团队</a></li>
+          <li><a href="#about" onclick="smoothScroll(event, 'about')">企业文化</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-links-title">投资者关系</div>
+        <ul class="footer-links">
+          <li><a href="#investor" onclick="smoothScroll(event, 'investor')">财务报告</a></li>
+          <li><a href="#investor" onclick="smoothScroll(event, 'investor')">公司治理</a></li>
+          <li><a href="#investor" onclick="smoothScroll(event, 'investor')">公告通知</a></li>
+          <li><a href="#investor" onclick="smoothScroll(event, 'investor')">投资者服务</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-links-title">支持与服务</div>
+        <ul class="footer-links">
+          <li><a href="#contact" onclick="smoothScroll(event, 'contact')">技术支持</a></li>
+          <li><a href="#contact" onclick="smoothScroll(event, 'contact')">文档中心</a></li>
+          <li><a href="#contact" onclick="smoothScroll(event, 'contact')">样品申请</a></li>
+          <li><a href="#contact" onclick="smoothScroll(event, 'contact')">常见问题</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider-gradient"></div>
+    <div class="footer-bottom">
+      <div>&copy; 2025 深圳市质能达微电子科技有限公司. All Rights Reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="#">隐私政策</a>
+        <a href="#">使用条款</a>
+        <span>粤ICP备XXXXXXXX号</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+  // Smooth scroll
+  function smoothScroll(e, id) {
+    e.preventDefault();
+    var el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Close mobile menu
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+  }
+
+  // Mobile menu toggle
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Nav scroll effect
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('nav');
+    if (window.scrollY > 20) {
+      nav.classList.add('nav-scrolled');
+    } else {
+      nav.classList.remove('nav-scrolled');
+    }
+
+    // Active nav link
+    var sections = ['hero','products','technology','about','news','investor','contact'];
+    var links = document.querySelectorAll('.nav-links .nav-link');
+    for (var i = sections.length - 1; i >= 0; i--) {
+      var sec = document.getElementById(sections[i]);
+      if (sec && sec.getBoundingClientRect().top <= 120) {
+        links.forEach(function(l) { l.classList.remove('active'); });
+        links[i].classList.add('active');
+        break;
+      }
+    }
+  }, { passive: true });
+
+  // Scroll animations (IntersectionObserver)
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Count up numbers
+        var counters = entry.target.querySelectorAll('[data-count]');
+        counters.forEach(function(counter) {
+          if (counter.dataset.counted) return;
+          counter.dataset.counted = 'true';
+          var target = parseInt(counter.dataset.count);
+          var duration = 2000;
+          var start = Date.now();
+          function tick() {
+            var elapsed = Date.now() - start;
+            var progress = Math.min(elapsed / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = Math.round(target * eased);
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+        // Timeline fill
+        var fill = document.getElementById('timelineFill');
+        if (entry.target.id === 'timeline' && fill) {
+          fill.style.width = '100%';
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Show news button on desktop
+  if (window.innerWidth >= 768) {
+    document.getElementById('newsBtn').style.display = 'inline-flex';
+  }
+
+  // Contact form
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submitBtn');
+    btn.innerHTML = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:0.5rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 提交成功！';
+    btn.style.opacity = '0.8';
+    setTimeout(function() {
+      btn.innerHTML = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:0.5rem;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> 提交咨询';
+      btn.style.opacity = '1';
+      e.target.reset();
+    }, 3000);
+  });
+</script>
+</body>
+</html>
